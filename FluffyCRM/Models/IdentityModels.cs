@@ -34,6 +34,7 @@ namespace FluffyCRM.Models
         [Display(Name = "Zip")]
         [MaxLength(10)]
         public string Zip { get; set; }
+   
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -55,5 +56,11 @@ namespace FluffyCRM.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ZipCode> ZipCodes { get; set; }
+        // public System.Data.Entity.DbSet<FluffyCRM.Models.Client> Clients { get; set; }
     }
 }
