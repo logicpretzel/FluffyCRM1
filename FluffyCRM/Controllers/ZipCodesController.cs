@@ -44,15 +44,8 @@ namespace FluffyCRM.Controllers
                            select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-               
-                
-                    zipcodes = zipcodes.Where(s => s.City.StartsWith(searchString)
-                                           || s.StateAbbrev.Equals(searchString)
-                                           || s.Zip.Equals(searchString)
-                                           );
-                
-
-
+                zipcodes = zipcodes.Where(s => s.City.Contains(searchString)
+                                       || s.StateAbbrev.Equals(searchString));
             }
             switch (sortOrder)
             {
