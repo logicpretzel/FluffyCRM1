@@ -3,10 +3,39 @@ namespace FluffyCRM.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class IdentChanges1 : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Clients",
+                c => new
+                    {
+                        ClientId = c.Int(nullable: false, identity: true),
+                        FirstName = c.String(maxLength: 50),
+                        LastName = c.String(maxLength: 50),
+                        Address1 = c.String(maxLength: 150),
+                        Address2 = c.String(maxLength: 150),
+                        City = c.String(maxLength: 50),
+                        State = c.String(maxLength: 50),
+                        Zip = c.String(maxLength: 10),
+                        Phone1 = c.String(maxLength: 50),
+                        PhoneType1 = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ClientId);
+            
+            CreateTable(
+                "dbo.Products",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false, maxLength: 255),
+                        Description = c.String(),
+                        CreateDate = c.DateTime(nullable: false),
+                        CurrentVersion = c.String(maxLength: 32),
+                    })
+                .PrimaryKey(t => t.Id);
+            
             CreateTable(
                 "dbo.AspNetRoles",
                 c => new
@@ -29,6 +58,24 @@ namespace FluffyCRM.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
+            
+            CreateTable(
+                "dbo.Tickets",
+                c => new
+                    {
+                        TicketId = c.Int(nullable: false, identity: true),
+                        Subject = c.String(maxLength: 255),
+                        CategoryId = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
+                        Description = c.String(),
+                        Status = c.Int(nullable: false),
+                        DeleteInd = c.Boolean(nullable: false),
+                        ClientId = c.Int(nullable: false),
+                        StartDate = c.DateTime(nullable: false),
+                        CompletedDate = c.DateTime(nullable: false),
+                        DueDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.TicketId);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -81,6 +128,18 @@ namespace FluffyCRM.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
+            CreateTable(
+                "dbo.ZipCodes",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Zip = c.String(maxLength: 15),
+                        City = c.String(maxLength: 50),
+                        StateAbbrev = c.String(maxLength: 5),
+                        PostalOrder = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID);
+            
         }
         
         public override void Down()
@@ -95,11 +154,15 @@ namespace FluffyCRM.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropTable("dbo.ZipCodes");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
+            DropTable("dbo.Tickets");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Products");
+            DropTable("dbo.Clients");
         }
     }
 }

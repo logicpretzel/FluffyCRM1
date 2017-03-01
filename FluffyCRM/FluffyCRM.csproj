@@ -187,33 +187,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702131317177_Ident Changes 1.cs" />
-    <Compile Include="Migrations\201702131317177_Ident Changes 1.Designer.cs">
-      <DependentUpon>201702131317177_Ident Changes 1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702151407178_Added Client.cs" />
-    <Compile Include="Migrations\201702151407178_Added Client.Designer.cs">
-      <DependentUpon>201702151407178_Added Client.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702242310496_client.cs" />
-    <Compile Include="Migrations\201702242310496_client.Designer.cs">
-      <DependentUpon>201702242310496_client.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702250518492_product ticket.cs" />
-    <Compile Include="Migrations\201702250518492_product ticket.Designer.cs">
-      <DependentUpon>201702250518492_product ticket.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702280129037_zipcode.cs" />
-    <Compile Include="Migrations\201702280129037_zipcode.Designer.cs">
-      <DependentUpon>201702280129037_zipcode.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702280146497_zipcode2.cs" />
-    <Compile Include="Migrations\201702280146497_zipcode2.Designer.cs">
-      <DependentUpon>201702280146497_zipcode2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702280155122_zipcode3.cs" />
-    <Compile Include="Migrations\201702280155122_zipcode3.Designer.cs">
-      <DependentUpon>201702280155122_zipcode3.cs</DependentUpon>
+    <Compile Include="Migrations\201703011333170_init.cs" />
+    <Compile Include="Migrations\201703011333170_init.Designer.cs">
+      <DependentUpon>201703011333170_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -336,26 +312,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702131317177_Ident Changes 1.resx">
-      <DependentUpon>201702131317177_Ident Changes 1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702151407178_Added Client.resx">
-      <DependentUpon>201702151407178_Added Client.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702242310496_client.resx">
-      <DependentUpon>201702242310496_client.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702250518492_product ticket.resx">
-      <DependentUpon>201702250518492_product ticket.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702280129037_zipcode.resx">
-      <DependentUpon>201702280129037_zipcode.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702280146497_zipcode2.resx">
-      <DependentUpon>201702280146497_zipcode2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702280155122_zipcode3.resx">
-      <DependentUpon>201702280155122_zipcode3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703011333170_init.resx">
+      <DependentUpon>201703011333170_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
