@@ -11,7 +11,8 @@
 @using (Html.BeginForm("Index", "ZipCodes", FormMethod.Get))
 {
     <p>
-        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        Find by Name, State Code or ZIP: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        
         <input type="submit" value="Search" />
     </p>
 }

@@ -22,7 +22,7 @@ namespace FluffyCRM.Controllers
         //    return View(await db.ZipCodes.ToListAsync());
         //}
 
-        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
+        public ActionResult Index(string sortOrder, string currentFilter,  string searchString, int? page)
 
         {
             ViewBag.CurrentSort = sortOrder;
@@ -44,8 +44,15 @@ namespace FluffyCRM.Controllers
                            select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                zipcodes = zipcodes.Where(s => s.City.Contains(searchString)
-                                       || s.StateAbbrev.Equals(searchString));
+               
+                
+                    zipcodes = zipcodes.Where(s => s.City.StartsWith(searchString)
+                                           || s.StateAbbrev.Equals(searchString)
+                                           || s.Zip.Equals(searchString)
+                                           );
+                
+
+
             }
             switch (sortOrder)
             {
